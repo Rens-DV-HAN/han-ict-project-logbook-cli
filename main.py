@@ -32,3 +32,26 @@ for text_line_index, text_line in enumerate(text_lines):
     elif not text_line.startswith("|"):
         new_row_index = text_line_index
         break
+
+if new_row_index is None:
+    raise ValueError(
+        "New table row index not found\n"
+        f"{today_str_heading_found = }\n"
+        f"{first_row_found = }"
+    )
+
+###
+
+columns = [
+    "Spent hours",
+    "Description",
+    "Those involved",
+    "Result",
+    "Emoji",
+    "Link",
+]
+
+new_row_values = [input(f"{column}: ") for column in columns]
+new_row = "| " + " | ".join(new_row_values) + " |\n"
+
+text_lines.insert(new_row_index, new_row)
