@@ -55,3 +55,8 @@ new_row_values = [input(f"{column}: ") for column in columns]
 new_row = "| " + " | ".join(new_row_values) + " |\n"
 
 text_lines.insert(new_row_index, new_row)
+
+###
+
+with open(FILE_PATH, "w") as file:
+    file.writelines(text_lines)
