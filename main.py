@@ -19,16 +19,16 @@ today_str_heading = f"## {today_str}\n"
 ###
 
 today_str_heading_found = False
-first_table_row_found = False
-new_table_row_index = None
+first_row_found = False
+new_row_index = None
 
 for text_line_index, text_line in enumerate(text_lines):
     if not today_str_heading_found:
         if text_line == today_str_heading:
             today_str_heading_found = True
-    elif not first_table_row_found:
+    elif not first_row_found:
         if text_line.startswith("|"):
-            first_table_row_found = True
+            first_row_found = True
     elif not text_line.startswith("|"):
-        new_table_row_index = text_line_index
+        new_row_index = text_line_index
         break
