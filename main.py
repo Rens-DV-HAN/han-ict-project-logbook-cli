@@ -70,14 +70,14 @@ new_row_data = {
     "Link": "N.v.t.",
 }
 
-emojis = ["😐", "😒", "😮‍💨", "🙂", "😀"]
+EMOJIS = ["😐", "😒", "😮‍💨", "🙂", "😀"]
 
 for column, value in new_row_data.items():
     message = f"{column}: "
     new_row_data[column] = (
         questionary.text(message, default=value)
         if column != "Emoji"
-        else questionary.select(message, choices=emojis)
+        else questionary.select(message, choices=EMOJIS)
     ).ask()
 
 new_row = "| " + " | ".join(new_row_data.values()) + " |\n"
