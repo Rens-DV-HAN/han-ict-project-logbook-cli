@@ -10,8 +10,9 @@ locale.setlocale(locale.LC_TIME, "nl_NL.utf8")
 ###
 
 FILE_PATH = "./logboek-projectweek-1.md"
+FILE_ENCODING = "utf-8"
 
-with open(FILE_PATH, encoding="utf-8") as file:
+with open(FILE_PATH, encoding=FILE_ENCODING) as file:
     text_lines = file.readlines()
 
 ###
@@ -86,5 +87,5 @@ text_lines.insert(new_row_index, new_row)
 
 ###
 
-with open(FILE_PATH, "w", encoding="utf-8") as file:
+with open(FILE_PATH, "w", encoding=FILE_ENCODING) as file:
     file.writelines(text_lines)
