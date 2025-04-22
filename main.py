@@ -37,6 +37,9 @@ for text_line_index, text_line in enumerate(text_lines):
     elif not text_line.startswith("|"):
         new_row_index = text_line_index
         break
+    elif text_line_index == len(text_lines) - 1:
+        new_row_index = text_line_index + 1
+        break
 
 if new_row_index is None:
     raise ValueError(
