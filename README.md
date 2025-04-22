@@ -26,4 +26,6 @@ The following constants can be changed in the `main.py` file:
 
 ## Usage
 
+Run the following in the venv:
+
 `cd <LOGBOOK_PATH>; python <THIS_PROJECT_PATH>/main.py`
