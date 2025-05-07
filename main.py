@@ -74,7 +74,7 @@ new_row_data = {
     "Link": "N.v.t.",
 }
 
-EMOJIS = ["😐", "😒", "😮‍💨", "🙂", "😀"]
+EMOJIS = ["😐", "😒", "😮‍💨", "🥱", "🤔", "🙂", "😀"]
 
 for column, value in new_row_data.items():
     message = f"{column}: "
