@@ -1,9 +1,24 @@
+import argparse
 import locale
 import math
 import os.path
 from datetime import datetime
 
 import questionary
+
+###
+
+argument_parser = argparse.ArgumentParser(
+    description="A simple CLI tool to easily add rows to a HAN ICT project logbook"
+)
+argument_parser.add_argument(
+    "--last-file-modification-datetime",
+    type=str,
+    help="The date and time when the logbook file was last modified",
+)
+arguments = argument_parser.parse_args()
+
+###
 
 locale.setlocale(locale.LC_TIME, "nl_NL.utf8")
 
@@ -50,10 +65,15 @@ if new_row_index is None:
 
 ###
 
-last_file_modification_timestamp = os.path.getmtime(FILE_PATH)
-last_file_modification_datetime = datetime.fromtimestamp(
-    last_file_modification_timestamp
-)
+if arguments.last_file_modification_datetime:
+    last_file_modification_datetime = datetime.strptime(
+        arguments.last_file_modification_datetime, "%Y-%m-%d %H:%M:%S"
+    )
+else:
+    last_file_modification_timestamp = os.path.getmtime(FILE_PATH)
+    last_file_modification_datetime = datetime.fromtimestamp(
+        last_file_modification_timestamp
+    )
 
 hours_since_last_file_modification = (
     now - last_file_modification_datetime
