@@ -29,3 +29,11 @@ The following constants can be changed in the `main.py` file:
 Run the following in the venv:
 
 `cd <LOGBOOK_PATH>; python <THIS_PROJECT_PATH>/main.py`
+
+### Parameters
+
+#### `--last-file-modification-datetime`
+
+To define a custom last logbook file modification datetime, this parameter can be used. This is useful if the file is in a git stash for example. It should be in the format `%Y-%m-%d %H:%M:%S` (`yyyy-mm-dd hh:mm:ss`).
+
+Example: `cd <LOGBOOK_PATH>; python <THIS_PROJECT_PATH>/main.py --last-file-modification-datetime="2025-05-08 14:26:39"`
